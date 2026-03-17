@@ -1,24 +1,41 @@
-# Usage and need of IFS (Internal Fiel Seperator) in Shell Scripting
-#IFS is used to seperate input, to different variables based on the seperator set
 
-# Example 1:
+# Usage and need of IFS (Internal Field Seperator) in Shell Scripting
+# IFS status how input is split, into different variables (Similar to "sep" in Python)
+
+#!/bin/bash
+
+# Example 1: Default IFS (space, tab, newline)
 read name1 name2
 echo "$name1"
 echo "$name2"
  
-# > Vijay Aniket      # Stdin from Keyboard
+# Input: Vijay Aniket      # Stdin from Keyboard
+# output:
+# Vijay
+# Aniket
 
-# output 1:
-> Vijay
-> Aniket
 
-# Example 2:
-IFS=","      # Default seperator changed from Whitespaces to Comma
-read name3,name4
+# Example 2: Change IFS to Comma
+IFS=","
+read name3 name4
+echo "$name3"
+echo "$name4"
  
-# > Vijay,Aniket Shiva     # Stdin from Keyboard
+# Input: Vijay,Aniket Shiva     # Stdin from Keyboard
+# output:        
+# Vijay
+# Aniket Shiva        # Here IFS changed to "," so anything after IFS is considered one string
 
-# output 2:        
-> Vijay
-> Aniket Shiva        # Here IFS changed to "," so anything after IFS is considered one string
 
+# Example 3: IFS with string spilitting
+IFS=":"
+str1="bat:ball:stadium"
+
+for word in $str1; do
+  echo "$word"
+done
+
+# output 3:
+# bat
+# ball
+# stadium
