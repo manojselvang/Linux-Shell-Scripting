@@ -40,3 +40,10 @@ Find all transactions over $500 and output only the transaction IDs. (Note: The 
 Redirect the result to: output/output4.txt
 
 grep "Transaction" /home/user/app_logs/* | sed 's/\$//g' | awk '$8 > 500' | awk '{print $6}' > /home/user//output/output4.txt
+Payment-service logs in a time window
+
+Identify all log entries between 2025-09-22 14:00 and 2025-09-22 15:00 for the payment-service.
+
+Redirect the result to: output/output5.txt
+
+grep -r "2025-09-22 14:" /home/user/app_logs/ | grep "payment-service" | sort -u > /home/user/output/output5.txt
