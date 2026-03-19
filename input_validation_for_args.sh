@@ -1,32 +1,25 @@
 #!/bin/bash
 
-Input Validation:
-The script must accept exactly two arguments:
-Argument 1: Service Name (e.g., web-app)
-Argument 2: Port Number (e.g., 8080)
-Validation Logic: If either argument is missing (empty), the script must print "Error: Missing arguments" and exit immediately with a non-zero status code (1).
+# This script is used to create a config file for a service.
+# It takes service name and port as input and writes them into a .conf file. 
+# (e.g., service name: web-app or database and port: 8080 or 3306)
 
+# Validate number of arguments
 if [ $# -ne 2 ]; then
-        echo "Error: Missing arguments"
-        exit 1
+    echo "Error: Missing arguments"
+    exit 1
 fi
 
-File Generation:
-If inputs are valid, create a new file named [Service Name].conf in the current directory.
-The content of this file must be exactly these three lines: ini [service] name=[Service Name] port=[Port Number]
-Note: You must use the variables passed into the script to fill these values.
-
-
-name=$1
+# Assign inputs
+service_name=$1                
 port=$2
 
+# Create config file with required content
 {
-echo "[service]"
-echo "name=$name"
-echo "port=$port" 
-} > "$name.conf"
+    echo "[service]"
+    echo "name=$service_name"
+    echo "port=$port"
+} > "$service_name.conf"
 
-
-User Feedback:
-Upon success, print "Config generated for [Service Name]" to the screen.
-echo "Config generated for $name"
+# Print success message
+echo "Config generated for $service_name"
