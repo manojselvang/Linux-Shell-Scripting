@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# Directory containing log files
+LOG_DIR="/home/user/log_archiver/logs"
+
+# Check if directory exists
+if [[ ! -d "$LOG_DIR" ]]; then
+    echo "Directory not found: $LOG_DIR"
+    exit 1
+fi
+
+# Loop through all .log files
+for file in "$LOG_DIR"/*.log; do
+    # Check if at least one .log file exists
+    [[ -e "$file" ]] || { echo "No .log files found"; exit 0; }
+
+    # Rename file by appending .old
+    mv "$file" "$file.old"
+
+    echo "Renamed: $file -> $file.old"
+done
