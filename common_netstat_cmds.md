@@ -1,42 +1,76 @@
 # Common Netstat Commands
 
-# Basic
-netstat                     # show active connections
+## Basic
 
-# Listening Ports
+```bash
+netstat                     # show active connections
+```
+
+## Listening Ports
+
+```bash
 netstat -l                  # show listening ports
 netstat -ln                 # listening ports (no DNS)
 netstat -lpn                # listening + process info
+```
 
-# TCP / UDP
+## TCP / UDP
+
+```bash
 netstat -t                  # TCP connections
 netstat -u                  # UDP connections
 netstat -tu                 # TCP + UDP
+```
 
-# Most Used
+## Most Used
+
+```bash
 netstat -tulnp              # all listening ports with process
+```
 
-# Established Connections
+## Established Connections
+
+```bash
 netstat -an | grep ESTABLISHED   # active established connections
+```
 
-# By Port
+## By Port
+
+```bash
 netstat -tulnp | grep :80        # filter by port
+```
 
-# By Process
+## By Process
+
+```bash
 netstat -tulnp | grep nginx      # filter by process
+```
 
-# Routing
+## Routing
+
+```bash
 netstat -r                  # routing table
+```
 
-# Interfaces
+## Interfaces
+
+```bash
 netstat -i                  # network interfaces
+```
 
-# Statistics
+## Statistics
+
+```bash
 netstat -s                  # protocol statistics
+```
 
-# Continuous
+## Continuous
+
+```bash
 netstat -c                  # live monitoring
 ```
+
+---
 
 ## Note
 
@@ -44,7 +78,6 @@ netstat -c                  # live monitoring
 
 Use:
 
-```
+```bash
 ss -tulnp
 ```
-
