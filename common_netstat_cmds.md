@@ -1,38 +1,38 @@
-# netstat
+# Common Netstat Commands
 
-## basic
+## Basic
 
 netstat
 
-## listening ports
+## Listening ports
 
 netstat -l
 netstat -ln
 netstat -lpn
 
-## tcp / udp
+## TCP / UDP
 
 netstat -t
 netstat -u
 netstat -tu
 
-## most used
+## Most widely used
 
 netstat -tulnp
 
-## established connections
+## Established connections
 
 netstat -an | grep ESTABLISHED
 
-## routing
+## Routing
 
 netstat -r
 
-## interfaces
+## Interfaces
 
 netstat -i
 
-## continuous
+## Continuous
 
 netstat -c
 
